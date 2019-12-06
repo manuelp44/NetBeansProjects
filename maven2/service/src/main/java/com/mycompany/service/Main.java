@@ -9,15 +9,18 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import com.mycompany.dao.fileWriter;
+import com.mycompany.dao.FileWriterUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author manue
  */
 public class Main {
-    
+    @Autowired
+    FileWriterUtil fileWriterUtil;
     private static Gson gson = new Gson();
+    
     
     private static String readUrl(String urlString) throws Exception {
 
@@ -50,6 +53,7 @@ public class Main {
         String json = readUrl("https://bulletinspace.s3-us-west-2.amazonaws.com/index.html");
         System.out.print(json);
         
+        
 
         //Type collectionType = new TypeToken<Collection<Record>>(){}.getType();
         //Collection<Record> enums = gson.fromJson(json, collectionType);
@@ -58,7 +62,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         
         Main gs = new Main();
-        gs.Json();
-        fileWriter.save(gson.toJson(gs));
+        gs.Json();   
+        FileWriterUtil.save(gson.toJson(gs));
     }
 }
