@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd            
+            http://www.springframework.org/schema/jee 
+            http://www.springframework.org/schema/jee/spring-jee.xsd">
+    
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.Project-spring-1.DAO, Service" />
+    <beans>
+        
+        <bean id = "student" class = "com.spring.dao.Student" autowire = "byType">
+            <property name = "firstName" value = "First Name: Manuel"/>
+            <property name = "lastName" value = "Last Name: Peralta"/>
+            <property name = "dob" value = "DOB: 12/15/1995"/>
+        </bean>
+        
+        <bean id = "address" class = "com.spring.dao.Address" autowire = "byType">
+        <property name = "street" value = "Street: Gaston Av."/>
+        <property name = "zip" value = "Zip: 12345"/>
+        <property name = "city" value = "City: Houston"/>
+        </bean>
+        
+        <bean id = "grade" class = "com.spring.dao.Grade" autowire = "byType">
+        <property name = "subject" value = "Math"/>
+        <property name = "lgrade" value = "B"/>
+        </bean>
+        
+        <bean id = "studentManager" class = "com.spring.service.Student_Manager"></bean>
+        
+    </beans>
+</beans>
