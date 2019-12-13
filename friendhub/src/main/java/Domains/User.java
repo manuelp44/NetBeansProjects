@@ -5,24 +5,17 @@
  */
 package Domains;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 /**
  *
  * @author manuel
  */
 
-@Entity
 public class User {
     
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private int id;
     private String name, email;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -45,6 +38,4 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }  
-    
-
 }
